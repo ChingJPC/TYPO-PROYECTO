@@ -19,7 +19,7 @@ return new class extends Migration
         $table->unsignedBigInteger('id_actividad');
         $table->unsignedBigInteger('id_agendamiento');
 
-        $table->foreign('id_actividad')->references('id')->on('informacion_actividad');
+      
         $table->foreign('id_agendamiento')->references('id')->on('agendamiento');
     });
 }

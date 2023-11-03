@@ -18,8 +18,7 @@ return new class extends Migration
         $table->string('Raza');
         $table->tinyInteger('Peso');
 
-        $table->unsignedBigInteger('id_informacion');
-        $table->foreign('id_informacion')->references('id')->on('informacion_actividad');
+        
     });
 }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Agendamiento;
 
 class AgendamientoApiController extends Controller
 {
@@ -59,7 +60,7 @@ class AgendamientoApiController extends Controller
             $agendamiento->delete();
             return response()->json($null, 200);
         }else{
-            return response()->json(['message' => 'no se pudo encontrar el agendamoento'], 404);
+            return response()->json(['message' => 'No se pudo encontrar el Agendamiento'], 404);
           }
     }
 }

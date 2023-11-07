@@ -7,7 +7,6 @@ use App\Http\Controllers\API\TipomascotaApiController;
 use App\Http\Controllers\API\InformacionApiController;
 use App\Http\Controllers\API\AgendamientoApiController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes

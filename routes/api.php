@@ -7,7 +7,6 @@ use App\Http\Controllers\API\TipomascotaApiController;
 use App\Http\Controllers\API\InformacionApiController;
 use App\Http\Controllers\API\AgendamientoApiController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,6 +40,8 @@ Route::group([
         'middleware' => 'auth:api'
       ], function() {
           Route::get('Informacion', [InformacionApiController::class,"store"]);
+          Route::get('Agendamiento', [AgendamientoApiController::class,"store"]);
+          Route::get('Tipomascota', [TipomascotaApiController::class,"store"]);
       });
 });
 

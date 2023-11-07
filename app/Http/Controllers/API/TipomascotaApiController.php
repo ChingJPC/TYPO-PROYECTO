@@ -34,7 +34,7 @@ class TipomascotaApiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $tipomascota = Tipomascota::find($id);
         return response()->json($tipomascota,200);
@@ -43,7 +43,7 @@ class TipomascotaApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         $tipomascota = Tipomascota::find($id);
 
@@ -58,7 +58,7 @@ class TipomascotaApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $tipomascota = Informacion::find($id);
         if($tipomascota){

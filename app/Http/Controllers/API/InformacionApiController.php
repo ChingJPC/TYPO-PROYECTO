@@ -44,7 +44,7 @@ class InformacionApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
             $informacion = Informacion::informatica($id);
             $informacion->Id_Mascota =$request->Id_Mascota;

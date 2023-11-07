@@ -38,7 +38,7 @@ class AgendamientoApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         $agendamiento = Agendamiento::find($id);
 
@@ -53,7 +53,7 @@ class AgendamientoApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $agendamiento = Agendamiento::find($id);
         if($agendamiento){

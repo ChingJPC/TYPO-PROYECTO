@@ -60,6 +60,12 @@ class TipomascotaApiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tipomascota = Informacion::find($id);
+        if($tipomascota){
+        $tipomascota->delete();
+        return response()->json($tipomascota, 200);
+    }else{
+        return response()->json(['message' => 'Tipo mascota no encontrada'], 404); 
+    }
     }
 }

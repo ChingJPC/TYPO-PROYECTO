@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Infomascota;
+use App\Models\Informacion;
 
-class InfomascotaApiController extends Controller
+class InformacionApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $infomascota = Infomascota::all();
-        return response()->json($infomascota, 200);
+        $informacion = Informacion::all();
+        return response()->json($informacion, 200);
     }
 
     /**
@@ -21,15 +21,15 @@ class InfomascotaApiController extends Controller
      */
     public function store(Request $request)
     {
-            $infomascota = new Infomascota();
-            $infomascota->Id_Mascota =$request->Id_Mascota;
-            $infomascota->Id_Tipo_Mascota =$request->Id_Tipo_Mascota;
-            $infomascota->Nombre =$request->Nombre;
-            $infomascota->Raza =$request->Raza;
-            $infomascota->Edad =$request->Edad; 
-            $infomascota->Peso =$request->Peso;
-            $infomascota->save();
-            return response()->json($infomascota, 201);  
+            $informacion = new Informacion();
+            $informacion->Id_Mascota =$request->Id_Mascota;
+            $informacion->Id_Tipo_Mascota =$request->Id_Tipo_Mascota;
+            $informacion->Nombre =$request->Nombre;
+            $informacion->Raza =$request->Raza;
+            $informacion->Edad =$request->Edad; 
+            $informacion->Peso =$request->Peso;
+            $informacion->save();
+            return response()->json($informacion, 201);  
     }
 
     /**
@@ -37,24 +37,24 @@ class InfomascotaApiController extends Controller
      */
     public function show($id)
     {
-        $infomascota = Infomascota::find($id);
-        return response()->json($infomascota,200);
+        $informacion = Informacion::find($id);
+        return response()->json($informacion,200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
-            $infomascota = Infomascota::informatica($id);
-            $infomascota->Id_Mascota =$request->Id_Mascota;
-            $infomascota->Id_Tipo_Mascota =$request->Id_Tipo_Mascota;
-            $infomascota->Nombre =$request->Nombre;
-            $infomascota->Raza =$request->Raza;
-            $infomascota->Edad =$request->Edad; 
-            $infomascota->Peso =$request->Peso;
-            $infomascota->update();
-            return response()->json($infomascota, 201); 
+            $informacion = Informacion::informatica($id);
+            $informacion->Id_Mascota =$request->Id_Mascota;
+            $informacion->Id_Tipo_Mascota =$request->Id_Tipo_Mascota;
+            $informacion->Nombre =$request->Nombre;
+            $informacion->Raza =$request->Raza;
+            $informacion->Edad =$request->Edad; 
+            $informacion->Peso =$request->Peso;
+            $informacion->update();
+            return response()->json($informacion, 201); 
     }
 
     /**
@@ -62,6 +62,12 @@ class InfomascotaApiController extends Controller
      */
     public function destroy($id)
     {
-        
+        $informacion = Informacion::find($id);
+        if($informacion){
+        $informacion->delete();
+        return response()->json($informacion, 200);
+    }else{
+        return response()->json(['message' => 'Informacion de Mascoto no encontrada'], 404); 
+    }
     }
 }

@@ -45,7 +45,7 @@ class TipomascotaApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         $tipomascota = Tipomascota::find($id);
 
@@ -60,14 +60,16 @@ class TipomascotaApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $tipomascota = Tipomascota::find($id); 
+
+        $tipomascota = Informacion::find($id);
         if($tipomascota){
-            $tipomascota->delete();
-            return response()->json(null, 204);
-        }else{
-            return response()->json(['message' => 'No se pudo eliminar la mascota'], 404);
-        }
+        $tipomascota->delete();
+        return response()->json($tipomascota, 200);
+    }else{
+        return response()->json(['message' => 'Tipo mascota no encontrada'], 404); 
+    }
+      
     }
 }

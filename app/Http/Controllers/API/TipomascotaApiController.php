@@ -45,7 +45,14 @@ class TipomascotaApiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tipomascota = Tipomascota::find($id);
+
+        $tipomascota->Id_Tipo_Mascota =$request->Id_Tipo_Mascota;
+        $tipomascota->Tipo_Mascota =$request->Tipo_Mascota;
+        $tipomascota->id_user =$request->id_user;
+        $tipomascota->id_mascota =$request->id_mascota;
+        $tipomascota->update();
+        return response()->json($tipomascota, 200);
     }
 
     /**

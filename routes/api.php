@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\API\TipomascotaApiController;
+use App\Http\Controllers\API\InformacionApiController;
 use App\Http\Controllers\API\AgendamientoApiController;
 
 /*
@@ -31,6 +33,13 @@ Route::group([
       'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', [AuthController::class,"logout"]);
-        Route::get('user', [AuthController::class,"user"]);
+        Route::get('user', [AuthController::class, 'user']);
     });
+
+    Route::group([
+        'middleware' => 'auth:api'
+      ], function() {
+          Route::get('Informacion', [InformacionApiController::class,"store"]);
+      });
 });
+

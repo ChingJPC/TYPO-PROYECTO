@@ -14,9 +14,9 @@ return new class extends Migration
     Schema::create('informacion', function (Blueprint $table) {
         $table->id();
         $table->string('Nombre_Mascota');
-        $table->tinyInteger('Edad');
+        $table->tinyinteger('Edad');
         $table->string('Raza');
-        $table->tinyInteger('Peso');
+        $table->tinyinteger('Peso');
 
         
     });

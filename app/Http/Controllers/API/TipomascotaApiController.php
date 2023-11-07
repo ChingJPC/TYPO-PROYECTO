@@ -53,7 +53,7 @@ class TipomascotaApiController extends Controller
         $tipomascota->Tipo_Mascota =$request->Tipo_Mascota;
         $tipomascota->id_user =$request->id_user;
         $tipomascota->id_mascota =$request->id_mascota;
-        $tipomascota->save();
+        $tipomascota->update();
         return response()->json($tipomascota, 200);
     }
 

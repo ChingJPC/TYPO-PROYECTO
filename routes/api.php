@@ -23,6 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
  Route::apiResource('Agendamiento',AgendamientoApiController::class );
 
+Route::apiResource('Tipomascota', TipomascotaApiController::class);
+
 Route::group([
     'prefix' => 'auth'
 ], function () {

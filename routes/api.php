@@ -7,6 +7,7 @@ use App\Http\Controllers\API\TipomascotaApiController;
 use App\Http\Controllers\API\InformacionApiController;
 use App\Http\Controllers\API\AgendamientoApiController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
  Route::apiResource('Agendamiento',AgendamientoApiController::class );
+
+Route::apiResource('Tipomascota', TipomascotaApiController::class);
 
 Route::group([
     'prefix' => 'auth'

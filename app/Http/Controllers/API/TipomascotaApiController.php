@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tipomascota;
+use App\Models\Informacion;
+
 
 class TipomascotaApiController extends Controller
 {
@@ -34,7 +36,7 @@ class TipomascotaApiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $tipomascota = Tipomascota::find($id);
         return response()->json($tipomascota,200);
@@ -60,6 +62,12 @@ class TipomascotaApiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tipomascota = Tipomascota::find($id); 
+        if($tipomascota){
+            $tipomascota->delete();
+            return response()->json(null, 204);
+        }else{
+            return response()->json(['message' => 'No se pudo eliminar la mascota'], 404);
+        }
     }
 }

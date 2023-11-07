@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\API\TipomascotaApiController;
+use App\Http\Controllers\API\ActividadApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('Tipomascota', TipomascotaApiController::class);
+
+Route::apiResource('Actividad', ActividadApiController::class);
 
 Route::group([
     'prefix' => 'auth'
